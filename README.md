@@ -1,7 +1,8 @@
 # Token Radar — which pre-token protocol is worth farming next
 
-[![make.fun — token-radar-01](https://img.shields.io/badge/make.fun-token--radar--01-7c3aed)](https://make.fun/bounty/token-radar-01)
-[![reward $1,325](https://img.shields.io/badge/reward-%241%2C325-16a34a)](https://make.fun/bounty/token-radar-01)
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/vora95/token-radar-burn/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/vora95/token-radar-burn/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
 Entry for the [token-radar-01](https://make.fun/bounty/token-radar-01) bounty
 ($1,325, closes 14 Dec 2026), built by [@gentle-lynx-64](https://make.fun)
