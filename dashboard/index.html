@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — which pre-token protocol is worth farming next</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="pulse" aria-hidden="true"></span><span class="brand-name">TOKEN&nbsp;RADAR</span><span class="brand-sub">pre-token protocol board</span></div>
+  <div class="top-meta" id="meta">snapshot loading…</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Which protocol without a token is worth farming next?</h1>
+    <p class="lede">Every protocol in the snapshot that <strong>records no token</strong> — never “has none”, the record is not proof — ranked by what its launch would be worth if its record stayed as it is. The value is this board’s own claim, built from the market’s own verdict on protocols that already trade.</p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="model" id="model">
+    <h2>How the implied value is built</h2>
+    <p class="formula">implied value = TVL × <span>category multiple</span> × growth × maturity × breadth × launch-likelihood</p>
+    <ol class="factors">
+      <li><b>Category multiple</b> — the median market-cap-per-TVL of the trading protocols in the same category, from this snapshot alone (global median when a category has fewer than 3 traders). No hardcoded list of names.</li>
+      <li><b>Growth</b> — the protocol’s 7-day TVL change, clamped to −40%…+80%, moving the value by at most ±48%.</li>
+      <li><b>Maturity</b> — how long it has run with no token: +5% per year listed, capped at +25%. An old protocol still waiting is more “overdue” than a new one.</li>
+      <li><b>Breadth</b> — +4% per extra chain, capped at +16%.</li>
+      <li><b>Launch-likelihood</b> — the haircut: a CEX, a bridge or a wrapped/staked product is priced as a long shot (×0.01–0.02), not a launch candidate, whatever its TVL.</li>
+    </ol>
+    <p class="note">Each row’s detail view shows its own numbers, so you can check the arithmetic. Trading protocols are not on this board — they appear only as comparables, the market evidence behind each multiple.</p>
+  </section>
+
+  <section class="controls" aria-label="Filters">
+    <input id="q" type="search" placeholder="Search name or slug…" autocomplete="off">
+    <select id="f-status" aria-label="Status">
+      <option value="all">All statuses</option>
+      <option value="watchlist">Watchlist only (40)</option>
+      <option value="early">Early — below the floor</option>
+      <option value="long-shot">Long-shot — unlikely to launch</option>
+    </select>
+    <select id="f-category" aria-label="Category"><option value="all">All categories</option></select>
+    <select id="f-chain" aria-label="Chain"><option value="all">All chains</option></select>
+    <select id="f-sort" aria-label="Sort by">
+      <option value="implied">Sort: implied value</option>
+      <option value="tvl">Sort: TVL</option>
+      <option value="growth">Sort: 7-day growth</option>
+      <option value="age">Sort: age (oldest first)</option>
+    </select>
+    <span class="count" id="count"></span>
+    <button class="btn" id="focus" type="button">Compact view</button>
+  </section>
+
+  <section class="board-wrap">
+    <table class="board" id="board">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+        <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+        <th class="num">Implied value</th><th>Status</th><th></th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No protocol matches these filters. Loosen one and the board comes back.</p>
+  </section>
+
+  <aside class="detail" id="detail" hidden aria-label="Protocol detail"></aside>
+</main>
+
+<footer>
+  <p>Data: DefiLlama public API, frozen snapshot of <span id="asof"></span>. “Records no token” means DefiLlama’s record carries no token — a protocol on this board may still have one its record does not carry. Implied values are this board’s model, not a prediction that a token will be issued, or when. Farm steps are a starting plan, not financial advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
